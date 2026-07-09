@@ -1,3 +1,83 @@
+# MomoGuard
+
+Learning project scaffold for real-time mobile money fraud detection in East Africa.
+
+This repository is intentionally initialized with a working API shell and strong placeholders, while leaving the fraud logic, data processing, training, and persistence for you to implement.
+
+## What Works Today
+
+- `GET /health` returns a live status response.
+- FastAPI OpenAPI docs are available at `/docs`.
+- `POST /score` exists and returns `501 Not Implemented`.
+- `POST /feedback` exists and returns `501 Not Implemented`.
+- Python packaging supports editable installs with `dev` and `ml` extras.
+- Docker and Docker Compose scaffolding are included.
+
+## Project Layout
+
+```text
+momoguard/
+├── src/
+│   ├── api/
+│   │   ├── db/
+│   │   ├── routers/
+│   │   ├── schemas/
+│   │   └── services/
+│   ├── data/
+│   ├── models/
+│   └── monitoring/
+├── tests/
+│   ├── integration/
+│   ├── performance/
+│   └── unit/
+├── scripts/
+├── data/
+│   ├── processed/
+│   ├── raw/
+│   └── reference/
+├── dashboard/
+├── AGENT_TASKS.md
+├── docker-compose.yml
+├── Dockerfile
+└── pyproject.toml
+```
+
+## Local Setup
+
+Create and activate a virtual environment:
+
+```powershell
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
+```
+
+Install the project:
+
+```powershell
+pip install -e ".[dev,ml]"
+```
+
+Run the API:
+
+```powershell
+uvicorn src.api.main:app --reload
+```
+
+Open:
+
+- `http://localhost:8000/health`
+- `http://localhost:8000/docs`
+
+## Development Notes
+
+- Environment defaults live in `.env.example`.
+- Large local assets are ignored via `.gitignore`.
+- Placeholder tests verify that the app boots and the current stub endpoints behave as expected.
+- The implementation boundary is tracked in `AGENT_TASKS.md`.
+
+## Your First Coding Task
+
+Implement the request and response schemas you want to keep stable for scoring and analyst feedback, then update the endpoint tests around those contracts before adding fraud logic.
 # MomoGuard — Full Project Specification
 
 > Real-time mobile money fraud detection for East Africa.
